@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "files.eol": "\n",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[typescript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.preferences.useAliasesForRenames": false,
+    "javascript.preferences.useAliasesForRenames": false,
+  },
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+}
