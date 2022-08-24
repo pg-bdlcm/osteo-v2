@@ -2,26 +2,25 @@ version: '3.8'
 
 services:
   api:
+    image: "node:17"
     container_name: "osteo_api_${NODE_ENV}"
-    image: "osteo_api_${NODE_ENV}"
     environment:
       - NODE_ENV:${NODE_ENV}
       - PORT:${PORT}
-    build:
-      context: ./api
-      target: "${NODE_ENV}"
-      dockerfile: Dockerfile
-    entrypoint: ["npm", "run", "start:${NODE_ENV}"]
+    # build:
+    #   context: ./api
+    #   target: "${NODE_ENV}"
+    #   dockerfile: Dockerfile
     env_file:
       - .env
     ports:
       - ${PORT}:${PORT}
-    networks:
-      - osteo-network
+    working_dir: /usr/src/api
     volumes:
       - ./api:/usr/src/api
       - /usr/src/api/node_modules
-    restart: unless-stopped
+    command: sleep infinity
+    # yarn && yarn start:${NODE_ENV}
 
 networks:
   osteo-network:
